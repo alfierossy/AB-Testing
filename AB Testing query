@@ -1,0 +1,18 @@
+						
+Project						
+SELECT						
+raw.campaign,						
+ads.Impressions,						
+COUNT (DISTINCT raw.user_pseudo_id) as distinct_users,						
+FROM						
+turing_data_analytics.raw_events as raw						
+JOIN						
+tc-da-1.turing_data_analytics.adsense_monthly as ads						
+ON						
+raw.campaign = ads.Campaign						
+WHERE						
+raw.campaign IN ('NewYear_V1', 'NewYear_V2', 'BlackFriday_V1', 'BlackFriday_V2')						
+AND ads.Impressions <> 6734						
+GROUP BY						
+1,2						
+						
